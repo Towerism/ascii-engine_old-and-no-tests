@@ -6,12 +6,12 @@
 
 #ifdef _WIN32
     #include <windows.h>
-    void sleep(unsigned milliseconds) {
+    void msleep(unsigned milliseconds) {
         Sleep(milliseconds);
     }
 #else
     #include <unistd.h>
-    void sleep(unsigned milliseconds) {
+    void msleep(unsigned milliseconds) {
         usleep(milliseconds * 1000); // takes microseconds
     }
 #endif
@@ -32,7 +32,7 @@ namespace ascii_engine {
             frame_time = end - start;
             if (frame_time.count() < target_dur.count()) {
                 ms sleep_length = std::chrono::duration_cast<ms>(target_dur - frame_time);
-                sleep(sleep_length.count());
+                msleep(sleep_length.count());
                 delta_time = frame_time + sleep_length;
             } else {
                 delta_time = frame_time;
