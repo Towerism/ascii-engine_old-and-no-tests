@@ -1,5 +1,4 @@
-include_directories("${CMAKE_SOURCE_DIR}/include/ascii-engine/")
-include_directories(".")
+include_directories("include/ascii-engine/")
 
 add_subdirectory(display)
 add_subdirectory(input)
