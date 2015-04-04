@@ -9,6 +9,7 @@
 namespace ascii_engine {
     struct World {
         World(int width, int height) : renderer(width, height) { }
+        ~World();
         void add(std::shared_ptr<Entity> e);
         void remove(std::shared_ptr<Entity> e) { remove(e.get()); }
         void remove(Entity* e);

@@ -6,6 +6,12 @@
 namespace ae = ascii_engine;
 using namespace std;
 
+ae::World::~World() {
+    for (auto& e : entities) {
+        remove(e);
+    }
+}
+
 void ae::World::add(shared_ptr<ae::Entity> e) {
     entities.push_back(e);
     renderer.add(e);
