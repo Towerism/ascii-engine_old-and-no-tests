@@ -26,8 +26,15 @@ void ae::World::remove(ae::Entity* e) {
 }
 
 void ae::World::update(double delta_time) {
-    for (auto& e : entities) {
-        e->update(delta_time);
+    auto it = entities.begin();
+    while (it != entities.end()) {
+        auto& e = it->get();
+        if (e->is_pending_removal()) {
+            it = remove(e); // remove and continue where iterating we left off
+        } else {
+            e->update();
+            ++it;
+        }
     }
     renderer.render();
 }
