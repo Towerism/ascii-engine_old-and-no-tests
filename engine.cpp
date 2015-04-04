@@ -21,6 +21,6 @@ void ae::Engine::game_loop() {
 
 void ae::Engine::poll_exit_key() {
     if (ae::Input_handler::get_instance().check_key(exit_key)) {
-        exit_loop = true;
+        terminate_loop();
     }
 }
