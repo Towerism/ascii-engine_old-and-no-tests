@@ -1,3 +1,4 @@
+cmake_minimum_required(VERSION 3.0 FATAL_ERROR)
 include_directories("include/ascii-engine/")
 
 if (WIN32)
@@ -14,9 +15,15 @@ elseif (UNIX)
 endif (WIN32)
 include_directories(${curses_include_dir})
 
+if (${CMAKE_CURRENT_LIST_DIR} STREQUAL ${CMAKE_SOURCE_DIR})
+    list( APPEND CMAKE_CXX_FLAGS "-std=c++14 ${CMAKE_CXX_FLAGS} -ggdb -O0 -ftest-coverage -fprofile-arcs")
+    set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/test/bin)
+    include_directories(../)
+endif(${CMAKE_CURRENT_LIST_DIR} STREQUAL ${CMAKE_SOURCE_DIR})
+
 add_subdirectory(display)
 add_subdirectory(input)
-
+add_subdirectory(test)
 
 set(asciiengine_sources engine.cpp world.cpp)
 add_library(asciiengine ${asciiengine_sources})

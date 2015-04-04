@@ -12,6 +12,9 @@ CMakeFiles
 Makefile
 *.cmake
 
+# binaries
+bin
+
 # Precompiled Headers
 *.gch
 *.pch
