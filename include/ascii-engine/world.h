@@ -7,6 +7,7 @@
 #include "ascii-engine/display/renderer.h"
 
 namespace ascii_engine {
+    typedef std::vector<std::shared_ptr<Entity>> entities_t;
     struct World {
         World(int width, int height) : renderer(width, height) { }
         ~World();
@@ -16,7 +17,12 @@ namespace ascii_engine {
 
         virtual void update(double delta_time);
     private:
-        std::vector<std::shared_ptr<Entity>> entities;
+        entities_t entities;
+
+        // we don't want to expose any iterators
+        // that's why this is private
+        entities_t::iterator remove_it(entities_t::iterator it);
+
         Renderer renderer;
     };
 }
