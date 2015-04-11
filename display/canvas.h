@@ -15,7 +15,7 @@ namespace ascii_engine {
 
     // getters
     const Screen_buffer get_buffer() const { return buffer; }
-    private:
+  private:
     Screen_buffer buffer;
   };
 }

@@ -21,7 +21,7 @@ namespace ascii_engine {
     bool is_pending_removal() {
       return pending_removal;
     }
-    private:
+  private:
     bool pending_removal;
   };
 }

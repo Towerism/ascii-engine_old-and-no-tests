@@ -16,7 +16,7 @@ namespace ascii_engine {
     // setters
     void set_world(std::shared_ptr<World> w) { world = w; }
     void set_exit_key(char key) { exit_key = key; }
-    private:
+  private:
     std::shared_ptr<World> world;
     int target_fps;
     bool in_loop = false;

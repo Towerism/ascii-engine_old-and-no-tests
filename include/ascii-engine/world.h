@@ -16,7 +16,7 @@ namespace ascii_engine {
     void remove(Entity* e);
 
     virtual void update(double delta_time);
-    private:
+  private:
     entities_t entities;
 
     // we don't want to expose any iterators

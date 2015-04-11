@@ -14,7 +14,7 @@ namespace ascii_engine {
     void remove(Renderable* r);
 
     void render();
-    private:
+  private:
     std::vector<std::shared_ptr<Renderable>> renderables;
     Canvas canvas;
   };

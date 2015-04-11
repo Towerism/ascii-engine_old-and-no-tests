@@ -21,7 +21,7 @@ namespace ascii_engine {
     int get_height() const { return height; }
     const buffer_t& get_buffer() const { return buffer; }
 
-    private:
+  private:
     int width, height;
     buffer_t buffer;
 

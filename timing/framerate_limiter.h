@@ -39,7 +39,7 @@ namespace ascii_engine {
       }
     }
     double get_delta_time() { return std::chrono::duration_cast<sec>(delta_time).count(); }
-    private:
+  private:
     steady_clock clock;
     int target_fps;
     steady_clock::duration target_dur, frame_time, delta_time;

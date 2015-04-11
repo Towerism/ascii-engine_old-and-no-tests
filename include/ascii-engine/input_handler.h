@@ -12,7 +12,7 @@ namespace ascii_engine {
     Input_handler();
     void poll();
     bool check_key(int key_code);
-    private:
+  private:
     std::map<int, int> input_map;
 
     Input_handler(const Input_handler&) = delete;

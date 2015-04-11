@@ -21,7 +21,7 @@ namespace ascii_engine {
     const string& get_graphic() const { return graphic; }
     int get_x() const { return x; }
     int get_y() const { return y; }
-    private:
+  private:
     int x, y;
     string graphic;
   };
