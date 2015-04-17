@@ -1,7 +1,7 @@
 #ifndef INPUT_HANDLER_H
 #define INPUT_HANDLER_H
 
-#include <map>
+#include <vector>
 
 namespace ascii_engine {
   struct Input_handler {

@@ -2,6 +2,13 @@
 #include <curses.h>
 #include "input_handler.h"
 
+#undef box
+#undef clear
+#undef erase
+#undef move
+#undef refresh
+#define __cplusplus
+
 namespace ae = ascii_engine;
 
 ae::Input_handler::Input_handler() {
