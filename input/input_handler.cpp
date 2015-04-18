@@ -7,7 +7,6 @@
 #undef erase
 #undef move
 #undef refresh
-#define __cplusplus
 
 namespace ae = ascii_engine;
 
