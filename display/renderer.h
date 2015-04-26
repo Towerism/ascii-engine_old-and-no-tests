@@ -1,3 +1,11 @@
+/**********************************
+ * author: Martin Fracker, Jr.
+ * license: GNU GPL
+ * * * * * * * * * * * * * * * * *
+ * file: renderer.h
+ * library: ascii-engine
+ **********************************/
+
 #ifndef RENDERER_H
 #define RENDERER_H
 

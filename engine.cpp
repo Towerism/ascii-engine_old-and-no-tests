@@ -1,3 +1,11 @@
+/**********************************
+ * author: Martin Fracker, Jr.
+ * license: GNU GPL
+ * * * * * * * * * * * * * * * * *
+ * file: engine.cpp
+ * library: ascii-engine
+ **********************************/
+
 #include "engine.h"
 #include "timing/framerate_limiter.h"
 #include "input_handler.h"

@@ -1,3 +1,11 @@
+/**********************************
+ * author: Martin Fracker, Jr.
+ * license: GNU GPL
+ * * * * * * * * * * * * * * * * *
+ * file: canvas.cpp
+ * library: ascii-engine
+ **********************************/
+
 #include <sstream>
 #include <string>
 #include "canvas.h"

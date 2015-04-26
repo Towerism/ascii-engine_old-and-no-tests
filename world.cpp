@@ -1,3 +1,11 @@
+/**********************************
+ * author: Martin Fracker, Jr.
+ * license: GNU GPL
+ * * * * * * * * * * * * * * * * *
+ * file: world.cpp
+ * library: ascii-engine
+ **********************************/
+
 #include <memory>
 #include <algorithm>
 #include "world.h"

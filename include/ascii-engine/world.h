@@ -1,3 +1,11 @@
+/**********************************
+ * author: Martin Fracker, Jr.
+ * license: GNU GPL
+ * * * * * * * * * * * * * * * * *
+ * file: world.h
+ * library: ascii-engine
+ **********************************/
+
 #ifndef WORLD_H
 #define WORLD_H
 

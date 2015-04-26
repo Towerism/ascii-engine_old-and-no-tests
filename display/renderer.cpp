@@ -1,3 +1,11 @@
+/**********************************
+ * author: Martin Fracker, Jr.
+ * license: GNU GPL
+ * * * * * * * * * * * * * * * * *
+ * file: renderer.cpp
+ * library: ascii-engine
+ **********************************/
+
 #include <memory>
 #include <algorithm>
 #include "renderer.h"
