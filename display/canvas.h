@@ -12,8 +12,10 @@
 #include "screen_buffer.h"
 
 namespace ascii_engine {
+
   struct Canvas {
-    Canvas(int width, int height, char val = ' ') : 
+
+    Canvas(int width, int height, char val = ' ') :
       buffer(width, height, val) { }
 
     void draw(int x, int y, char c) { buffer.set_char(x, y, c); }
@@ -23,7 +25,9 @@ namespace ascii_engine {
 
     // getters
     const Screen_buffer get_buffer() const { return buffer; }
+
   private:
+
     Screen_buffer buffer;
   };
 }
