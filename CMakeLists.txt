@@ -24,6 +24,7 @@ endif(${CMAKE_CURRENT_LIST_DIR} STREQUAL ${CMAKE_SOURCE_DIR})
 
 add_subdirectory(display)
 add_subdirectory(input)
+add_subdirectory(timing)
 
 set(asciiengine_sources engine.cpp world.cpp)
 add_library(asciiengine ${asciiengine_sources})
