@@ -29,6 +29,6 @@ add_subdirectory(timing)
 set(asciiengine_sources engine.cpp world.cpp)
 add_library(asciiengine ${asciiengine_sources})
 
-set(asciiengine_libs display input ${curses_lib})
+set(asciiengine_libs display input timing ${curses_lib})
 target_link_libraries(asciiengine ${asciiengine_libs})
 
