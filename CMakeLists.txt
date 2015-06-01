@@ -1,2 +1,2 @@
-include_directories(include/ascii-engine/internal)
-add_subdirectory(src)
+include_directories(src/ascii-engine)
+add_subdirectory(src/ascii-engine)

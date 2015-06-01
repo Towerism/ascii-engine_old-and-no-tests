@@ -11,8 +11,8 @@
 
 #include <memory>
 #include <vector>
+#include <ascii-engine/display/renderer.h>
 #include "entity.h"
-#include "renderer.h"
 
 namespace ascii_engine {
   typedef std::vector<std::shared_ptr<Entity>> entities_t;

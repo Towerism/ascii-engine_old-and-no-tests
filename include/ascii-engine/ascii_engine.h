@@ -1,9 +1,9 @@
 #ifndef ASCII_ENGINE_H
 #define ASCII_ENGINE_H
 
-#include <internal/engine.h>
-#include <internal/entity.h>
-#include <internal/world.h>
-#include <internal/input_handler.h>
+#include <ascii-engine/engine.h>
+#include <ascii-engine/entity.h>
+#include <ascii-engine/world.h>
+#include <ascii-engine/input/input_handler.h>
 
 #endif // ASCII_ENGINE_H
