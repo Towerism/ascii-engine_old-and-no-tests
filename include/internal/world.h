@@ -12,7 +12,7 @@
 #include <memory>
 #include <vector>
 #include "entity.h"
-#include "ascii-engine/display/renderer.h"
+#include "renderer.h"
 
 namespace ascii_engine {
   typedef std::vector<std::shared_ptr<Entity>> entities_t;
