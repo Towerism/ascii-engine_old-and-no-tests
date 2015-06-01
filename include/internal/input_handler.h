@@ -15,9 +15,9 @@ namespace ascii_engine {
 
   struct Input_handler {
 
-    static Input_handler* get() {
+    static Input_handler& get() {
       static Input_handler instance;
-      return &instance;
+      return instance;
     }
 
     Input_handler();
