@@ -10,15 +10,13 @@
 #include <curses.h>
 #include "input_handler.h"
 
-#undef box
-#undef clear
-#undef erase
-#undef move
-#undef refresh
-
 namespace ae = ascii_engine;
 
 ae::Input_handler::Input_handler() {
+  setup_curses_input();
+}
+
+void ae::Input_handler::setup_curses_input() {
   raw();
   noecho();
   cbreak();
@@ -27,11 +25,13 @@ ae::Input_handler::Input_handler() {
 }
 
 void ae::Input_handler::poll() {
-  int c;
-  // clear keys unused from last poll
   input_vec.clear();
+  collect_keys_pressed();
+}
+
+void ae::Input_handler::collect_keys_pressed() {
   while(true) {
-    c = getch();
+    int c = getch();
     if (c == ERR) {
       break;
     }
@@ -40,12 +40,12 @@ void ae::Input_handler::poll() {
 }
 
 bool ae::Input_handler::check_key(int key) {
-  const auto& it = find_if(input_vec.begin(), input_vec.end(),
-      [key](int elem) { return elem == key; }
-      );
-  if (it != input_vec.end()) {
-    input_vec.erase(it);
-    return true;
-  }
-  return false;
+  return was_pressed(key);
+}
+
+bool ae::Input_handler::was_pressed(int key) {
+  const auto& it = find(input_vec.begin(), input_vec.end(), key);
+  bool found = it != input_vec.end();
+  input_vec.erase(it);
+  return found;
 }
