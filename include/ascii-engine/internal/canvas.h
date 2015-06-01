@@ -31,7 +31,10 @@ namespace ascii_engine {
     Screen_buffer buffer;
     std::istringstream stream;
 
-    void draw_lines_from_stream(int x, int y);
+    void prepare_stream(const std::string&);
+    void stream_contents_to_buffer(int x, int y);
+    void add_next_line_to_buffer(int x, int y);
+    void make_stream_good();
     bool there_are_more_lines();
     std::string next_line();
   };

@@ -32,14 +32,16 @@ namespace ascii_engine {
     const buffer_t& get_buffer() const { return buffer; }
 
   private:
+
     int width, height;
     buffer_t buffer;
 
     void setup_curses_output();
     void fill_buffer_with(char val);
+    void push_filled_row_to_buffer(char val);
+    bool is_in_bounds(int x, int y);
     void write_buffer_to_screen();
     void empty_buffer();
-    bool is_in_bounds(int x, int y);
   };
 }
 

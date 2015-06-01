@@ -27,10 +27,13 @@ void ae::Screen_buffer::setup_curses_output() {
 }
 
 void ae::Screen_buffer::fill_buffer_with(char val) {
-  for (int i = 0; i < height; ++i) {
-    vector<char> row(width, val);
-    buffer.push_back(row);
-  }
+  for (int i = 0; i < height; ++i)
+    push_filled_row_to_buffer(val);
+}
+
+void ae::Screen_buffer::push_filled_row_to_buffer(char val) {
+  vector<char> row(width, val);
+  buffer.push_back(row);
 }
 
 ae::Screen_buffer::~Screen_buffer() {
@@ -38,28 +41,21 @@ ae::Screen_buffer::~Screen_buffer() {
   clear();
 }
 
-void ae::Screen_buffer::empty_buffer() {
-  for (auto& vec : buffer) {
-    fill(vec.begin(), vec.end(), ' ');
-  }
-}
-
 void ae::Screen_buffer::put_char(int x, int y, char val) {
-  if (!is_in_bounds(x, y)) {
+  if (!is_in_bounds(x, y))
     return;
-  }
   buffer[y][x] = val;
 }
 
 bool ae::Screen_buffer::is_in_bounds(int x, int y) {
-  return !buffer.empty() && x > 0 && y > 0 &&
+  return !buffer.empty() &&
+    x > 0 && y > 0 &&
     x < width && y < height;
 }
 
 void ae::Screen_buffer::put_line(int x, int y, const string& s) {
-  for (int i = x; i - x < s.length(); ++i) {
+  for (int i = x; i - x < s.length(); ++i)
     put_char(i, y, s[i - x]);
-  }
 }
 
 void ae::Screen_buffer::flush() {
@@ -69,9 +65,12 @@ void ae::Screen_buffer::flush() {
 }
 
 void ae::Screen_buffer::write_buffer_to_screen() {
-  for (int i = 0; i < width; ++i) {
-    for (int j = 0; j < height; ++j) {
+  for (int i = 0; i < width; ++i)
+    for (int j = 0; j < height; ++j)
       mvprintw(j, i, "%c", buffer[j][i]);
-    }
-  }
+}
+
+void ae::Screen_buffer::empty_buffer() {
+  for (auto& vec : buffer)
+    fill(vec.begin(), vec.end(), ' ');
 }

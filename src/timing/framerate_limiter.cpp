@@ -16,11 +16,10 @@ void ae::Framerate_limiter::frame_start() {
 
 void ae::Framerate_limiter::frame_end() {
   end_frame_clock();
-  if (there_is_residual_time()) {
+  if (there_is_residual_time())
     sleep_for_remaining_time();
-  } else {
+  else
     end_frame_immediately();
-  }
 }
 
 void ae::Framerate_limiter::end_frame_clock() {
