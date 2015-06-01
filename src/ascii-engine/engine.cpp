@@ -6,28 +6,31 @@
  * library: ascii-engine
  **********************************/
 
-#include <ascii-engine/timing/framerate_limiter.h>
-#include <ascii-engine/input/input_handler.h>
 #include "engine.h"
 
 namespace ae = ascii_engine;
 using namespace std;
 
 void ae::Engine::game_loop() {
-  using Input_handler = ae::Input_handler;
-  Framerate_limiter fps_limiter(target_fps);
-  Input_handler& input = Input_handler::get();
   in_loop = true;
   while (!exit_loop) {
-    fps_limiter.frame_start();
-    input.poll();
-    poll_exit_key();
-    world->update(fps_limiter.get_delta_time());
-    fps_limiter.frame_end();
+    update_frame();
   }
 }
 
-void ae::Engine::poll_exit_key() {
+void ae::Engine::update_frame() {
+  fps_limiter.frame_start();
+  update_input();
+  world->update(fps_limiter.get_delta_time());
+  fps_limiter.frame_end();
+}
+
+void ae::Engine::update_input() {
+  input.poll();
+  terminate_on_exit_key();
+}
+
+void ae::Engine::terminate_on_exit_key() {
   if (ae::Input_handler::get().check_key(exit_key)) {
     terminate_loop();
   }
