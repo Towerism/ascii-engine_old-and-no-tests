@@ -23,6 +23,7 @@ void ae::Canvas::draw_lines_from_stream(int x, int y) {
     string line = next_line();
     buffer.put_line(x, i, line);
   }
+  stream.clear();
 }
 
 bool ae::Canvas::there_are_more_lines() {
