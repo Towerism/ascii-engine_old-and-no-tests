@@ -28,17 +28,17 @@ void ae::Canvas::stream_contents_to_buffer(int x, int y) {
     add_next_line_to_buffer(x, i);
 }
 
-void ae::Canvas::add_next_line_to_buffer(int x, int y) {
-  string line = next_line();
-  buffer.put_line(x, y, line);
-}
-
 void ae::Canvas::make_stream_good() {
   stream.clear();
 }
 
 bool ae::Canvas::there_are_more_lines() {
   return stream.good();
+}
+
+void ae::Canvas::add_next_line_to_buffer(int x, int y) {
+  string line = next_line();
+  buffer.put_line(x, y, line);
 }
 
 string ae::Canvas::next_line() {
