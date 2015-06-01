@@ -16,40 +16,62 @@ using namespace std;
 
 ae::Screen_buffer::Screen_buffer(int width, int height, char val) :
   width(width), height(height) {
-    // set up console for curses
-    initscr();
-    curs_set(0);
-    clear();
-    // initialize the container
-    for (int i = 0; i < height; ++i) {
-      vector<char> row(width, val);
-      buffer.push_back(row);
-    }
-  }
+  setup_curses_output();
+  fill_buffer_with(val);
+}
 
-ae::Screen_buffer::~Screen_buffer() { 
+void ae::Screen_buffer::setup_curses_output() {
+  initscr();
+  curs_set(0);
+  clear();
+}
+
+void ae::Screen_buffer::fill_buffer_with(char val) {
+  for (int i = 0; i < height; ++i) {
+    vector<char> row(width, val);
+    buffer.push_back(row);
+  }
+}
+
+ae::Screen_buffer::~Screen_buffer() {
   endwin();
   clear();
 }
 
-void ae::Screen_buffer::purge() {
+void ae::Screen_buffer::empty_buffer() {
   for (auto& vec : buffer) {
     fill(vec.begin(), vec.end(), ' ');
   }
 }
 
-void ae::Screen_buffer::set_char(int x, int y, char val) {
+void ae::Screen_buffer::put_char(int x, int y, char val) {
+  if (!is_in_bounds(x, y)) {
+    return;
+  }
   buffer[y][x] = val;
 }
 
+bool ae::Screen_buffer::is_in_bounds(int x, int y) {
+  return !buffer.empty() && x > 0 && y > 0 &&
+    x < width && y < height;
+}
+
+void ae::Screen_buffer::put_line(int x, int y, const string& s) {
+  for (int i = x; i - x < s.length(); ++i) {
+    put_char(i, y, s[i - x]);
+  }
+}
+
 void ae::Screen_buffer::flush() {
+  write_buffer_to_screen();
+  empty_buffer();
+  refresh();
+}
+
+void ae::Screen_buffer::write_buffer_to_screen() {
   for (int i = 0; i < width; ++i) {
     for (int j = 0; j < height; ++j) {
-      mvprintw(j, i, "%c", buffer.at(j).at(i));
+      mvprintw(j, i, "%c", buffer[j][i]);
     }
   }
-  // empty the buffer
-  purge();
-  // refresh the screen
-  refresh();
 }
