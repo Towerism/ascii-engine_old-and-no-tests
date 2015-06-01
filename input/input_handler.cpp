@@ -16,7 +16,7 @@ ae::Input_handler::Input_handler() {
   setup_curses_input();
 }
 
-void setup_curses_input() {
+void ae::Input_handler::setup_curses_input() {
   raw();
   noecho();
   cbreak();
