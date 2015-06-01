@@ -1,4 +1,3 @@
-set(timing_sources Framerate_limiter)
+set(timing_sources framerate_limiter.cpp)
 
-target_sources(timing ${timing_sources})
-add_library(timing)
+add_library(timing ${timing_sources})
