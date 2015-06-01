@@ -7,7 +7,7 @@
  **********************************/
 
 #include "engine.h"
-#include "timing/framerate_limiter.h"
+#include "framerate_limiter.h"
 #include "input_handler.h"
 
 namespace ae = ascii_engine;
