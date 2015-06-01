@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 2.8 FATAL_ERROR)
 include_directories("include/ascii-engine/")
+include_directories(".")
 
 if (WIN32)
     # set these curses variables to the correct paths on your system
