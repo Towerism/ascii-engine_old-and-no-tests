@@ -6,9 +6,9 @@
  * library: ascii-engine
  **********************************/
 
+#include <ascii-engine/timing/framerate_limiter.h>
+#include <ascii-engine/input/input_handler.h>
 #include "engine.h"
-#include "framerate_limiter.h"
-#include "input_handler.h"
 
 namespace ae = ascii_engine;
 using namespace std;
