@@ -40,12 +40,14 @@ void ae::Input_handler::collect_keys_pressed() {
 }
 
 bool ae::Input_handler::check_key(int key) {
-  return was_pressed(key);
+  const auto it = find(input_vec.begin(), input_vec.end(), key);
+  return was_pressed(it);
 }
 
-bool ae::Input_handler::was_pressed(int key) {
-  const auto& it = find(input_vec.begin(), input_vec.end(), key);
-  bool found = it != input_vec.end();
-  input_vec.erase(it);
-  return found;
+bool ae::Input_handler::was_pressed(std::vector<int>::const_iterator it) {
+  bool pressed = it != input_vec.end();
+  if (pressed) {
+    input_vec.erase(it);
+  }
+  return pressed;
 }

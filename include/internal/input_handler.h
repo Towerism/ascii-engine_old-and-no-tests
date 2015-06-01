@@ -15,9 +15,9 @@ namespace ascii_engine {
 
   struct Input_handler {
 
-    static Input_handler& get() {
+    static Input_handler* get() {
       static Input_handler instance;
-      return instance;
+      return &instance;
     }
 
     Input_handler();
@@ -31,7 +31,7 @@ namespace ascii_engine {
     std::vector<int> input_vec;
 
     void collect_keys_pressed();
-    bool was_pressed(int key);
+    bool was_pressed(std::vector<int>::const_iterator it);
 
     Input_handler(const Input_handler&) = delete;
     void operator=(const Input_handler&) = delete;
