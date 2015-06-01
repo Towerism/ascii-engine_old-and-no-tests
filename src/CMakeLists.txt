@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8 FATAL_ERROR)
-include_directories("include/internal/")
+include_directories("../include/internal/")
 
 if (WIN32)
     # set these curses variables to the correct paths on your system
@@ -18,7 +18,6 @@ include_directories(${curses_include_dir})
 if (${CMAKE_CURRENT_LIST_DIR} STREQUAL ${CMAKE_SOURCE_DIR})
     list( APPEND CMAKE_CXX_FLAGS "-std=c++14 ${CMAKE_CXX_FLAGS} -ggdb -O0 -ftest-coverage -fprofile-arcs")
     set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/test/bin)
-    include_directories(../)
     add_subdirectory(test)
 endif(${CMAKE_CURRENT_LIST_DIR} STREQUAL ${CMAKE_SOURCE_DIR})
 
