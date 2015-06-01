@@ -18,7 +18,7 @@ namespace ascii_engine {
 
   struct Engine {
 
-    Engine(int fps) : target_fps(fps), fps_limiter(target_fps),
+    Engine(int target_fps) : fps_limiter(target_fps),
                       input(Input_handler::get()) { }
 
     void game_loop();
@@ -35,7 +35,6 @@ namespace ascii_engine {
 
     std::shared_ptr<World> world;
 
-    int target_fps;
     Framerate_limiter fps_limiter;
     Input_handler& input;
 

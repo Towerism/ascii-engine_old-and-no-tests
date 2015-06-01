@@ -21,7 +21,6 @@ namespace ascii_engine {
     }
 
     Input_handler();
-    void setup_curses_input();
 
     void poll();
     bool check_key(int key_code);
@@ -29,6 +28,8 @@ namespace ascii_engine {
   private:
 
     std::vector<int> input_vec;
+
+    void ensure_curses_input();
 
     void collect_keys_pressed();
     bool was_pressed(std::vector<int>::const_iterator it);

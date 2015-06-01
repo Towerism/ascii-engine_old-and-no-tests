@@ -13,20 +13,20 @@
 namespace ae = ascii_engine;
 
 ae::Input_handler::Input_handler() {
-  setup_curses_input();
 }
 
-void ae::Input_handler::setup_curses_input() {
-  raw();
+
+void ae::Input_handler::poll() {
+  ensure_curses_input();
+  input_vec.clear();
+  collect_keys_pressed();
+}
+
+void ae::Input_handler::ensure_curses_input() {
   noecho();
   cbreak();
   nodelay(stdscr, TRUE);
   keypad(stdscr, TRUE);
-}
-
-void ae::Input_handler::poll() {
-  input_vec.clear();
-  collect_keys_pressed();
 }
 
 void ae::Input_handler::collect_keys_pressed() {

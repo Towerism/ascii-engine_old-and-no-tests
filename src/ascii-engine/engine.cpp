@@ -31,7 +31,7 @@ void ae::Engine::update_input() {
 }
 
 void ae::Engine::terminate_on_exit_key() {
-  if (ae::Input_handler::get().check_key(exit_key)) {
+  if (input.check_key(exit_key)) {
     terminate_loop();
   }
 }
