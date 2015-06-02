@@ -13,9 +13,8 @@ using namespace std;
 
 void ae::Engine::game_loop() {
   in_loop = true;
-  while (!exit_loop) {
+  while (!exit_loop)
     update_frame();
-  }
 }
 
 void ae::Engine::update_frame() {
@@ -31,7 +30,6 @@ void ae::Engine::update_input() {
 }
 
 void ae::Engine::terminate_on_exit_key() {
-  if (input.check_key(exit_key)) {
+  if (input.check_key(exit_key))
     terminate_loop();
-  }
 }
