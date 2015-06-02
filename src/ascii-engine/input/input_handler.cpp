@@ -22,7 +22,7 @@ void ae::Input_handler::collect_keys_pressed() {
   do {
     last_key_pressed = curses::get_key();
     maybe_push_key_back(last_key_pressed);
-  } while(key_is_valid(last_key_pressed));
+  } while(curses::key_is_valid(last_key_pressed));
 }
 
 void ae::Input_handler::maybe_push_key_back(int key) {

@@ -1,23 +1,24 @@
 #ifndef MSLEEP_H
 #define MSLEEP_H
 
-namespace ascii_engine {
-
-  // cross-platform millisecond sleep function
 #ifdef _WIN32
 #include <windows.h>
-
-  void msleep(unsigned milliseconds) {
-    Sleep(milliseconds);
-  }
-
 #else
 #include <unistd.h>
+#endif
 
-  void msleep(unsigned milliseconds) {
+namespace ascii_engine {
+
+#ifdef _WIN32
+
+  inline void msleep(unsigned milliseconds) {
+    Sleep(milliseconds);
+  }
+#else
+
+  inline void msleep(unsigned milliseconds) {
     usleep(milliseconds * 1000); // takes microseconds
   }
-
 #endif
 
 }

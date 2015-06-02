@@ -32,7 +32,6 @@ namespace ascii_engine {
 
     void collect_keys_pressed();
     void maybe_push_key_back(int key);
-    bool key_is_valid(int key);
     bool was_pressed(std::vector<int>::const_iterator it);
 
     Input_handler(const Input_handler&) = delete;
