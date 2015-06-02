@@ -6,6 +6,7 @@
  * library: ascii-engine
  **********************************/
 
+#include <ascii-engine/util/msleep.h>
 #include "framerate_limiter.h"
 
 namespace ae = ascii_engine;
@@ -31,7 +32,6 @@ bool ae::Framerate_limiter::there_is_residual_time() {
   return frame_time.count() < target_dur.count();
 }
 
-void msleep(unsigned milliseconds);
 void ae::Framerate_limiter::sleep_for_remaining_time() {
   ms sleep_length = std::chrono::duration_cast<ms>(target_dur - frame_time);
   msleep(sleep_length.count());
@@ -41,15 +41,3 @@ void ae::Framerate_limiter::sleep_for_remaining_time() {
 void ae::Framerate_limiter::end_frame_immediately() {
   delta_time = frame_time;
 }
-
-#ifdef _WIN32
-#include <windows.h>
-void msleep(unsigned milliseconds) {
-  Sleep(milliseconds);
-}
-#else
-#include <unistd.h>
-void msleep(unsigned milliseconds) {
-  usleep(milliseconds * 1000); // takes microseconds
-}
-#endif
