@@ -24,10 +24,8 @@ namespace ascii_engine {
     void game_loop();
     void terminate_loop() { exit_loop = in_loop; }
 
-    // getters
     char get_exit_key() const { return exit_key; }
 
-    // setters
     void set_world(std::shared_ptr<World> w) { world = w; }
     void set_exit_key(char key) { exit_key = key; }
 
