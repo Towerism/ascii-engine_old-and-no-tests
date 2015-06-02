@@ -12,10 +12,6 @@
 
 namespace ae = ascii_engine;
 
-ae::Input_handler::Input_handler() {
-}
-
-
 void ae::Input_handler::poll() {
   ensure_curses_input();
   input_vec.clear();
@@ -30,13 +26,24 @@ void ae::Input_handler::ensure_curses_input() {
 }
 
 void ae::Input_handler::collect_keys_pressed() {
-  while(true) {
-    int c = getch();
-    if (c == ERR) {
-      break;
-    }
-    input_vec.push_back(c);
-  }
+  do {
+    last_key_pressed = next_key();
+    maybe_push_key_back(last_key_pressed);
+  } while(key_is_valid(last_key_pressed));
+}
+
+int ae::Input_handler::next_key() {
+  int key = getch();
+  return key;
+}
+
+void ae::Input_handler::maybe_push_key_back(int key) {
+  if (key_is_valid(key))
+    input_vec.push_back(key);
+}
+
+bool ae::Input_handler::key_is_valid(int key) {
+  return key != ERR;
 }
 
 bool ae::Input_handler::check_key(int key) {

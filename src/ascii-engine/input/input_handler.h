@@ -20,7 +20,7 @@ namespace ascii_engine {
       return instance;
     }
 
-    Input_handler();
+    Input_handler() { }
 
     void poll();
     bool check_key(int key_code);
@@ -28,10 +28,14 @@ namespace ascii_engine {
   private:
 
     std::vector<int> input_vec;
+    int last_key_pressed;
 
     void ensure_curses_input();
 
     void collect_keys_pressed();
+    int next_key();
+    void maybe_push_key_back(int key);
+    bool key_is_valid(int key);
     bool was_pressed(std::vector<int>::const_iterator it);
 
     Input_handler(const Input_handler&) = delete;
