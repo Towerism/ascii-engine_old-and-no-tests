@@ -26,6 +26,8 @@ namespace ascii_engine {
   private:
 
     Canvas canvas;
+
+    void draw_renderables();
   };
 
 }

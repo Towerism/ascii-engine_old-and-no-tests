@@ -15,8 +15,11 @@ namespace ae = ascii_engine;
 using namespace std;
 
 void ae::Renderer::render() {
-  for (const auto& r : renderables) {
-    canvas.draw(r->get_x(), r->get_y(), r->get_graphic());
-  }
+  draw_renderables();
   canvas.refresh();
+}
+
+void ae::Renderer::draw_renderables() {
+  for (const auto& r : renderables)
+    canvas.draw(r->get_x(), r->get_y(), r->get_graphic());
 }
