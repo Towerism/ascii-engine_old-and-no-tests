@@ -31,7 +31,6 @@ void ae::World::update(double delta_time) {
 }
 
 void ae::World::update_renderables(double delta_time) {
-  for (auto r : renderables) {
+  for (auto r : renderables)
     r->update(delta_time);
-  }
 }
