@@ -19,10 +19,13 @@ void ae::Input_handler::poll() {
 }
 
 void ae::Input_handler::collect_keys_pressed() {
-  do {
-    last_key_pressed = curses::get_key();
-    maybe_push_key_back(last_key_pressed);
-  } while(curses::key_is_valid(last_key_pressed));
+  do collect_next_key();
+  while(curses::key_is_valid(last_key_pressed));
+}
+
+void ae::Input_handler::collect_next_key() {
+  last_key_pressed = curses::get_key();
+  maybe_push_key_back(last_key_pressed);
 }
 
 void ae::Input_handler::maybe_push_key_back(int key) {
@@ -37,8 +40,7 @@ bool ae::Input_handler::check_key(int key) {
 
 bool ae::Input_handler::was_pressed(std::vector<int>::const_iterator it) {
   bool pressed = it != input_vec.end();
-  if (pressed) {
+  if (pressed)
     input_vec.erase(it);
-  }
   return pressed;
 }

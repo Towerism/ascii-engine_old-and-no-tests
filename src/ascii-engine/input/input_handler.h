@@ -31,6 +31,7 @@ namespace ascii_engine {
     int last_key_pressed;
 
     void collect_keys_pressed();
+    void collect_next_key();
     void maybe_push_key_back(int key);
     bool was_pressed(std::vector<int>::const_iterator it);
 
