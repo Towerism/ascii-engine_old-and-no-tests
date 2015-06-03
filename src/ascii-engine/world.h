@@ -12,26 +12,25 @@
 #include <memory>
 #include <vector>
 #include <ascii-engine/display/renderer.h>
-#include "entity.h"
+#include <ascii-engine/display/renderable_list.h>
+#include <ascii-engine/display/renderable_remover.h>
 
 namespace ascii_engine {
-  typedef std::vector<std::shared_ptr<Entity>> entities_t;
-  struct World {
-    World(int width, int height) : renderer(width, height) { }
-    ~World();
-    void add(std::shared_ptr<Entity> e);
-    void remove(std::shared_ptr<Entity> e) { remove(e.get()); }
-    void remove(Entity* e);
+
+  struct World : Renderable_list {
+
+    World(int width, int height);
+
+    virtual void add(std::shared_ptr<Renderable> r);
 
     virtual void update(double delta_time);
-  private:
-    entities_t entities;
 
-    // we don't want to expose any iterators
-    // that's why this is private
-    entities_t::iterator remove_it(entities_t::iterator it);
+  private:
 
     Renderer renderer;
+    Renderable_remover renderable_remover;
+
+    void update_renderables(double delta_time);
   };
 }
 

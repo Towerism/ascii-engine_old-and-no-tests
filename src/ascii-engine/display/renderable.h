@@ -10,6 +10,7 @@
 #define RENDERABLE_H
 
 #include <string>
+#include "renderable_remover.h"
 
 namespace ascii_engine {
   struct Renderable {
@@ -20,16 +21,24 @@ namespace ascii_engine {
 
     void translate(int delta_x, int delta_y) { x += delta_x; y += delta_y; }
 
+    virtual void update(double delta_time) { }
+
+    void attach_remover(Renderable_remover& remover) {
+      this->remover = &remover;
+    }
+
     void set_graphic(const string& s) { graphic = s; }
-    void set_x(int val) { x = val; }
-    void set_y(int val) { y = val; }
 
     const string& get_graphic() const { return graphic; }
     int get_x() const { return x; }
     int get_y() const { return y; }
-  private:
+
+  protected:
+
     int x, y;
     string graphic;
+
+    Renderable_remover* remover;
   };
 }
 
