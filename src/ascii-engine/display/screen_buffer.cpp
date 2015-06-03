@@ -43,7 +43,7 @@ void ae::Screen_buffer::put_char(int x, int y, char val) {
 
 bool ae::Screen_buffer::is_in_bounds(int x, int y) {
   return !buffer.empty() &&
-    x > 0 && y > 0 &&
+    x >= 0 && y >= 0 &&
     x < width && y < height;
 }
 
