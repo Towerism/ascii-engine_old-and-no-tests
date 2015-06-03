@@ -15,7 +15,6 @@ void ae::Renderable_remover::remove(shared_ptr<Renderable> e) {
 }
 
 void ae::Renderable_remover::remove(Renderable* e) {
-  for (Renderable_list* list : lists) {
+  for (Renderable_list* list : lists)
     list->remove(e);
-  }
 }
