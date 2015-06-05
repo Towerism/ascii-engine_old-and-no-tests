@@ -13,22 +13,14 @@
 #include <vector>
 #include <ascii-engine/display/renderer.h>
 #include <ascii-engine/display/renderable_list.h>
-#include <ascii-engine/display/renderable_remover.h>
 
 namespace ascii_engine {
 
   struct World : Renderable_list {
 
-    World(int width, int height);
-
-    virtual void add(std::shared_ptr<Renderable> r);
-
     virtual void update(double delta_time);
 
   private:
-
-    Renderer renderer;
-    Renderable_remover renderable_remover;
 
     void update_renderables(double delta_time);
   };

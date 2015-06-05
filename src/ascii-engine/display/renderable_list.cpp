@@ -6,6 +6,10 @@
 using namespace std;
 namespace ae = ascii_engine;
 
+void ae::Renderable_list::add(Renderable* r) {
+  add(shared_ptr<Renderable>(r));
+}
+
 void ae::Renderable_list::add(shared_ptr<Renderable> r) {
   renderables.push_back(r);
 }

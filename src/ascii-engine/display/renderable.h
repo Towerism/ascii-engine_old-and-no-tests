@@ -10,10 +10,13 @@
 #define RENDERABLE_H
 
 #include <string>
-#include "renderable_remover.h"
 
 namespace ascii_engine {
+
+  struct Renderable_adder;
+
   struct Renderable {
+
     using string = std::string;
 
     Renderable(int x, int y) : Renderable(x, y, "") { }
@@ -23,8 +26,8 @@ namespace ascii_engine {
 
     virtual void update(double delta_time) { }
 
-    void attach_remover(Renderable_remover& remover) {
-      this->remover = &remover;
+    void attach_adder(Renderable_adder* adder) {
+      this->adder = adder;
     }
 
     void set_graphic(const string& s) { graphic = s; }
@@ -38,7 +41,7 @@ namespace ascii_engine {
     int x, y;
     string graphic;
 
-    Renderable_remover* remover;
+    Renderable_adder* adder;
   };
 }
 

@@ -12,26 +12,25 @@
 #include <memory>
 #include <ascii-engine/timing/framerate_limiter.h>
 #include <ascii-engine/input/input_handler.h>
+#include "context.h"
 #include "world.h"
 
 namespace ascii_engine {
 
   struct Engine {
 
-    Engine(int target_fps) : fps_limiter(target_fps),
-                      input(Input_handler::get()) { }
+    Engine(int target_fps) :
+      fps_limiter(target_fps),
+      input(Input_handler::get()) { }
 
     void game_loop();
-    void terminate_loop() { exit_loop = in_loop; }
 
-    char get_exit_key() const { return exit_key; }
-
-    void set_world(std::shared_ptr<World> w) { world = w; }
+    void set_context(Context* context);
     void set_exit_key(char key) { exit_key = key; }
 
   private:
 
-    std::shared_ptr<World> world;
+    std::shared_ptr<Context> context;
 
     Framerate_limiter fps_limiter;
     Input_handler& input;
@@ -43,6 +42,7 @@ namespace ascii_engine {
     void update_frame();
     void update_input();
     void terminate_on_exit_key();
+    void terminate_loop();
   };
 }
 

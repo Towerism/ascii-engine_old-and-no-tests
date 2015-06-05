@@ -10,6 +10,7 @@
 #include <ascii-engine/util/curses_io.h>
 #include "input_handler.h"
 
+using namespace std;
 namespace ae = ascii_engine;
 
 void ae::Input_handler::poll() {
@@ -38,7 +39,7 @@ bool ae::Input_handler::check_key(int key) {
   return was_pressed(it);
 }
 
-bool ae::Input_handler::was_pressed(std::vector<int>::const_iterator it) {
+bool ae::Input_handler::was_pressed(vector<int>::const_iterator it) {
   bool pressed = it != input_vec.end();
   if (pressed)
     input_vec.erase(it);
