@@ -1,11 +1,3 @@
-/**********************************
- * author: Martin Fracker, Jr.
- * license: GNU GPL
- * * * * * * * * * * * * * * * * *
- * file: test_main.cpp
- * library: ascii-engine
- **********************************/
-
 #include <gtest/gtest.h>
 
 int main(int argc, char** argv) {

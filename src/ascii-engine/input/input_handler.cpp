@@ -1,11 +1,3 @@
-/**********************************
- * author: Martin Fracker, Jr.
- * license: GNU GPL
- * * * * * * * * * * * * * * * * *
- * file: input_handler.cpp
- * library: ascii-engine
- **********************************/
-
 #include <algorithm>
 #include <ascii-engine/util/curses_io.h>
 #include "input_handler.h"

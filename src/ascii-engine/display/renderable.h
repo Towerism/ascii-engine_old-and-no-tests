@@ -1,11 +1,3 @@
-/**********************************
- * author: Martin Fracker, Jr.
- * license: GNU GPL
- * * * * * * * * * * * * * * * * *
- * file: renderable.h
- * library: ascii-engine
- **********************************/
-
 #ifndef RENDERABLE_H
 #define RENDERABLE_H
 

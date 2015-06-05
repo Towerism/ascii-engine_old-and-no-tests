@@ -1,11 +1,3 @@
-/**********************************
- * author: Martin Fracker, Jr.
- * license: GNU GPL
- * * * * * * * * * * * * * * * * *
- * file: input_handler.h
- * library: ascii-engine
- **********************************/
-
 #ifndef INPUT_HANDLER_H
 #define INPUT_HANDLER_H
 

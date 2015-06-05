@@ -1,11 +1,3 @@
-/**********************************
- * author: Martin Fracker, Jr.
- * license: GNU GPL
- * * * * * * * * * * * * * * * * *
- * file: engine.h
- * library: ascii-engine
- **********************************/
-
 #ifndef ENGINE_H
 #define ENGINE_H
 

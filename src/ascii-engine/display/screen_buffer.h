@@ -1,11 +1,3 @@
-/**********************************
- * author: Martin Fracker, Jr.
- * license: GNU GPL
- * * * * * * * * * * * * * * * * *
- * file: screen_buffer.h
- * library: ascii-engine
- **********************************/
-
 #ifndef SCREEN_BUFFER_H
 #define SCREEN_BUFFER_H
 

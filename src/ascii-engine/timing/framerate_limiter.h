@@ -1,11 +1,3 @@
-/**********************************
- * author: Martin Fracker, Jr.
- * license: GNU GPL
- * * * * * * * * * * * * * * * * *
- * file: framerate_limiter.h
- * library: ascii-engine
- **********************************/
-
 #ifndef FRAMERATE_LIMITER_H
 #define FRAMERATE_LIMITER_H
 

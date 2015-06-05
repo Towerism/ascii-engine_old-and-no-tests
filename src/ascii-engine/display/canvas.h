@@ -1,11 +1,3 @@
-/**********************************
- * author: Martin Fracker, Jr.
- * license: GNU GPL
- * * * * * * * * * * * * * * * * *
- * file: canvas.h
- * library: ascii-engine
- **********************************/
-
 #ifndef CANVAS_H
 #define CANVAS_H
 

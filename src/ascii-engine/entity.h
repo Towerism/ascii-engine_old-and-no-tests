@@ -1,11 +1,3 @@
-/**********************************
- * author: Martin Fracker, Jr.
- * license: GNU GPL
- * * * * * * * * * * * * * * * * *
- * file: entity.h
- * library: ascii-engine
- **********************************/
-
 #ifndef ENTITY_H
 #define ENTITY_H
 

@@ -1,11 +1,3 @@
-/**********************************
- * author: Martin Fracker, Jr.
- * license: GNU GPL
- * * * * * * * * * * * * * * * * *
- * file: framerate_limiter.h
- * library: ascii-engine
- **********************************/
-
 #include <ascii-engine/util/msleep.h>
 #include "framerate_limiter.h"
 
