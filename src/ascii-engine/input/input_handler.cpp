@@ -6,7 +6,6 @@ using namespace std;
 namespace ae = ascii_engine;
 
 void ae::Input_handler::poll() {
-  curses::setup_input();
   input_vec.clear();
   collect_keys_pressed();
 }
@@ -17,7 +16,7 @@ void ae::Input_handler::collect_keys_pressed() {
 }
 
 void ae::Input_handler::collect_next_key() {
-  last_key_pressed = curses::get_key();
+  last_key_pressed = input_buffer->get_key();
   maybe_push_key_back(last_key_pressed);
 }
 

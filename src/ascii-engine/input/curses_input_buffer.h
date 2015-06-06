@@ -6,6 +6,8 @@
 namespace ascii_engine {
   struct Curses_input_buffer : Input_buffer {
 
+    Curses_input_buffer();
+
     virtual int get_key() override;
     virtual bool key_is_valid(int key) override;
   };
