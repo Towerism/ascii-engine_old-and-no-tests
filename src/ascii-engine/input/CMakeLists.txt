@@ -1,4 +1,4 @@
-set(input_sources input_handler.cpp)
+set(input_sources input_handler.cpp curses_input_buffer.cpp)
 add_library(input ${input_sources})
 
 include_directories(input PUBLIC ${curses_include_dir})

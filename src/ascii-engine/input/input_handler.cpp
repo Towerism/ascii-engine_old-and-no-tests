@@ -13,7 +13,7 @@ void ae::Input_handler::poll() {
 
 void ae::Input_handler::collect_keys_pressed() {
   do collect_next_key();
-  while(curses::key_is_valid(last_key_pressed));
+  while(input_buffer->key_is_valid(last_key_pressed));
 }
 
 void ae::Input_handler::collect_next_key() {
@@ -22,7 +22,7 @@ void ae::Input_handler::collect_next_key() {
 }
 
 void ae::Input_handler::maybe_push_key_back(int key) {
-  if (curses::key_is_valid(key))
+  if (input_buffer->key_is_valid(key))
     input_vec.push_back(key);
 }
 

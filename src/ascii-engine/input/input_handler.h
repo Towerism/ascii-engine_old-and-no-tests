@@ -1,7 +1,9 @@
 #ifndef INPUT_HANDLER_H
 #define INPUT_HANDLER_H
 
+#include <memory>
 #include <vector>
+#include "curses_input_buffer.h"
 
 namespace ascii_engine {
 
@@ -17,8 +19,9 @@ namespace ascii_engine {
 
   private:
 
-    Input_handler() { }
+    Input_handler() : input_buffer(new Curses_input_buffer) { }
 
+    std::unique_ptr<Input_buffer> input_buffer;
     std::vector<int> input_vec;
     int last_key_pressed;
 
