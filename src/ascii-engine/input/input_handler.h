@@ -12,12 +12,12 @@ namespace ascii_engine {
       return instance;
     }
 
-    Input_handler() { }
-
     void poll();
     bool check_key(int key_code);
 
   private:
+
+    Input_handler() { }
 
     std::vector<int> input_vec;
     int last_key_pressed;
