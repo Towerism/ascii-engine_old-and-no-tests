@@ -5,6 +5,8 @@ namespace ascii_engine {
 
   struct Input_source {
 
+    virtual ~Input_source() { }
+
     virtual int get_key() = 0;
     virtual bool key_is_valid(int key) = 0;
   };
