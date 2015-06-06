@@ -20,6 +20,10 @@ namespace curses {
     keypad(stdscr, TRUE);
   }
 
+  inline void cleanup() {
+    endwin();
+  }
+
   inline void refresh_screen() {
     refresh();
   }

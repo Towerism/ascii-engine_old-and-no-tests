@@ -31,7 +31,7 @@ void ae::Screen_buffer::push_filled_row_to_buffer(char val) {
 }
 
 ae::Screen_buffer::~Screen_buffer() {
-  endwin();
+  curses::cleanup();
 }
 
 void ae::Screen_buffer::put_char(int x, int y, char val) {
