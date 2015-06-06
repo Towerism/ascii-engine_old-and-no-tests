@@ -16,8 +16,6 @@ namespace ascii_engine {
 
     void refresh() { buffer.flush(); }
 
-    const Screen_buffer get_buffer() const { return buffer; }
-
   private:
 
     Screen_buffer buffer;
