@@ -52,8 +52,8 @@ void ae::Screen_buffer::flush() {
 }
 
 void ae::Screen_buffer::write_buffer_to_screen() {
-  for (int i = 0; i < width; ++i)
-    for (int j = 0; j < height; ++j)
+  for (int j = 0; j < height; ++j)
+    for (int i = 0; i < width; ++i)
       screen_output->print_char_at(j, i, char_matrix[j][i]);
 }
 
