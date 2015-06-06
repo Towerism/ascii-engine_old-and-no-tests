@@ -6,17 +6,15 @@
  * library: ascii-engine
  **********************************/
 
-#include <iostream>
 #include <algorithm>
-#include <ascii-engine/util/curses_io.h>
 #include "screen_buffer.h"
+#include "curses_screen_output.h"
 
 namespace ae = ascii_engine;
 using namespace std;
 
 ae::Screen_buffer::Screen_buffer(int width, int height, char val) :
-  width(width), height(height) {
-  curses::setup_output();
+  width(width), height(height), screen_output(new Curses_screen_output) {
   fill_buffer_with(val);
 }
 
@@ -28,10 +26,6 @@ void ae::Screen_buffer::fill_buffer_with(char val) {
 void ae::Screen_buffer::push_filled_row_to_buffer(char val) {
   vector<char> row(width, val);
   char_matrix.push_back(row);
-}
-
-ae::Screen_buffer::~Screen_buffer() {
-  curses::cleanup();
 }
 
 void ae::Screen_buffer::put_char(int x, int y, char val) {
@@ -54,13 +48,13 @@ void ae::Screen_buffer::put_line(int x, int y, const string& s) {
 void ae::Screen_buffer::flush() {
   write_buffer_to_screen();
   empty_buffer();
-  curses::refresh_screen();
+  screen_output->refresh();
 }
 
 void ae::Screen_buffer::write_buffer_to_screen() {
   for (int i = 0; i < width; ++i)
     for (int j = 0; j < height; ++j)
-      curses::print_char_at(j, i, char_matrix[j][i]);
+      screen_output->print_char_at(j, i, char_matrix[j][i]);
 }
 
 void ae::Screen_buffer::empty_buffer() {

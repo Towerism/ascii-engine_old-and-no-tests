@@ -1,9 +1,11 @@
 #ifndef SCREEN_BUFFER_H
 #define SCREEN_BUFFER_H
 
+#include <memory>
 #include <vector>
 #include <iostream>
 #include <string>
+#include "screen_output.h"
 
 namespace ascii_engine {
 
@@ -12,7 +14,6 @@ namespace ascii_engine {
   struct Screen_buffer {
 
     Screen_buffer(int width, int height, char val = ' ');
-    ~Screen_buffer();
 
     void flush();
 
@@ -22,9 +23,9 @@ namespace ascii_engine {
   private:
 
     int width, height;
+    std::unique_ptr<Screen_output> screen_output;
     matrix_t char_matrix;
 
-    void setup_curses_output();
     void fill_buffer_with(char val);
     void push_filled_row_to_buffer(char val);
     bool is_in_bounds(int x, int y);
