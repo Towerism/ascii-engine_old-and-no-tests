@@ -13,6 +13,7 @@ namespace curses {
   }
 
   inline void setup_input() {
+    initscr();
     noecho();
     cbreak();
     nodelay(stdscr, TRUE);
