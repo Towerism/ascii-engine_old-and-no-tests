@@ -7,6 +7,10 @@ ae::Curses_input_source::Curses_input_source() {
   curses::setup_input();
 }
 
+ae::Curses_input_source::~Curses_input_source() {
+  curses::cleanup();
+}
+
 int ae::Curses_input_source::get_key() {
   return curses::get_key();
 }
