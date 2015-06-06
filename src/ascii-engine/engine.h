@@ -3,7 +3,7 @@
 
 #include <memory>
 #include <ascii-engine/timing/framerate_limiter.h>
-#include <ascii-engine/input/input_handler.h>
+#include <ascii-engine/input/input_buffer.h>
 #include "context.h"
 #include "world.h"
 
@@ -13,7 +13,7 @@ namespace ascii_engine {
 
     Engine(int target_fps) :
       fps_limiter(target_fps),
-      input(Input_handler::get()) { }
+      input(Input_buffer::get()) { }
 
     void game_loop();
 
@@ -25,7 +25,7 @@ namespace ascii_engine {
     std::shared_ptr<Context> context;
 
     Framerate_limiter fps_limiter;
-    Input_handler& input;
+    Input_buffer& input;
 
     bool in_loop = false;
     bool exit_loop = false;
