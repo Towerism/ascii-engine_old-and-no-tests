@@ -1,3 +1,11 @@
+/**********************************
+ * author: Martin Fracker, Jr.
+ * license: GNU GPL
+ * * * * * * * * * * * * * * * * *
+ * file: screen_buffer.cpp
+ * library: ascii-engine
+ **********************************/
+
 #include <iostream>
 #include <algorithm>
 #include <ascii-engine/util/curses_io.h>
@@ -19,22 +27,21 @@ void ae::Screen_buffer::fill_buffer_with(char val) {
 
 void ae::Screen_buffer::push_filled_row_to_buffer(char val) {
   vector<char> row(width, val);
-  buffer.push_back(row);
+  char_matrix.push_back(row);
 }
 
 ae::Screen_buffer::~Screen_buffer() {
   endwin();
-  clear();
 }
 
 void ae::Screen_buffer::put_char(int x, int y, char val) {
   if (!is_in_bounds(x, y))
     return;
-  buffer[y][x] = val;
+  char_matrix[y][x] = val;
 }
 
 bool ae::Screen_buffer::is_in_bounds(int x, int y) {
-  return !buffer.empty() &&
+  return !char_matrix.empty() &&
     x >= 0 && y >= 0 &&
     x < width && y < height;
 }
@@ -53,10 +60,10 @@ void ae::Screen_buffer::flush() {
 void ae::Screen_buffer::write_buffer_to_screen() {
   for (int i = 0; i < width; ++i)
     for (int j = 0; j < height; ++j)
-      curses::print_char_at(j, i, buffer[j][i]);
+      curses::print_char_at(j, i, char_matrix[j][i]);
 }
 
 void ae::Screen_buffer::empty_buffer() {
-  for (auto& vec : buffer)
+  for (auto& vec : char_matrix)
     fill(vec.begin(), vec.end(), ' ');
 }
