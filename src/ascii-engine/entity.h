@@ -7,10 +7,11 @@ namespace ascii_engine {
 
   struct Entity : Renderable {
 
-    Entity() : Entity(0, 0) { }
-    Entity(int x, int y) : Entity(x, y, "") { }
-    Entity(int x, int y, const std::string& s)
-      : Renderable(x, y, s) { }
+    Entity();
+    Entity(int x, int y);
+    Entity(int x, int y, const std::string& s);
+
+    void translate(int delta_x, int delta_y);
   };
 }
 

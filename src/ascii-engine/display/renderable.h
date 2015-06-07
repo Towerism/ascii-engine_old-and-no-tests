@@ -12,8 +12,6 @@ namespace ascii_engine {
     Renderable(int x, int y);
     Renderable(int x, int y, std::string s);
 
-    void translate(int delta_x, int delta_y);
-
     virtual void update(double delta_time) { }
 
     void attach_delegator(Renderable_adder_delegator* delegator);

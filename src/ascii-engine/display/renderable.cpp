@@ -10,11 +10,6 @@ ae::Renderable::Renderable(int x, int y, std::string s) : x(x), y(y), graphic(s)
 
 }
 
-void ae::Renderable::translate(int delta_x, int delta_y) {
-  x += delta_x;
-  y += delta_y;
-}
-
 void ae::Renderable::attach_delegator(Renderable_adder_delegator* delegator) {
   this->delegator = delegator;
 }
