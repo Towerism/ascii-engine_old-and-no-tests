@@ -1,5 +1,5 @@
-#ifndef RENDERABLE_ADDER_DELEGATE_H
-#define RENDERABLE_ADDER_DELEGATE_H
+#ifndef RENDERABLE_ADDER_DELEGATOR_H
+#define RENDERABLE_ADDER_DELEGATOR_H
 
 #include <vector>
 #include <memory>
@@ -11,7 +11,7 @@ namespace ascii_engine {
   struct Renderable;
   typedef std::vector<std::shared_ptr<Renderable>> renderables_t;
 
-  struct Renderable_adder_delegate : Renderable_adder {
+  struct Renderable_adder_delegator : Renderable_adder {
 
     void attach(Renderable_adder* renderable_adder);
 
@@ -29,4 +29,4 @@ namespace ascii_engine {
   };
 }
 
-#endif // RENDERABLE_ADDER_DELEGATE_H
+#endif // RENDERABLE_ADDER_DELEGATOR_H

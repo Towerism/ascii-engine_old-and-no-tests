@@ -4,12 +4,12 @@
 #include <memory>
 #include <ascii-engine/display/renderer.h>
 #include <ascii-engine/display/renderable_adder.h>
-#include <ascii-engine/display/renderable_adder_delegate.h>
+#include <ascii-engine/display/renderable_adder_delegator.h>
 #include "world.h"
 
 namespace ascii_engine {
 
-  struct Context : Renderable_adder_delegate {
+  struct Context : Renderable_adder_delegator {
 
     Context(int width, int height);
 
