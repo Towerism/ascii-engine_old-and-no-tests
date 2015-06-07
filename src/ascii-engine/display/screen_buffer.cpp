@@ -1,4 +1,3 @@
-#include <algorithm>
 #include "screen_buffer.h"
 #include "curses_screen_output.h"
 

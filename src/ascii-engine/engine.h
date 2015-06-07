@@ -5,7 +5,6 @@
 #include <ascii-engine/timing/framerate_limiter.h>
 #include <ascii-engine/input/input_buffer.h>
 #include "context.h"
-#include "world.h"
 
 namespace ascii_engine {
 

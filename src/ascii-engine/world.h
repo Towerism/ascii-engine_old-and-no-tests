@@ -1,9 +1,6 @@
 #ifndef WORLD_H
 #define WORLD_H
 
-#include <memory>
-#include <vector>
-#include <ascii-engine/display/renderer.h>
 #include <ascii-engine/display/renderable_list.h>
 
 namespace ascii_engine {

@@ -12,7 +12,7 @@ namespace ascii_engine {
     Renderable(int x, int y);
     Renderable(int x, int y, std::string s);
 
-    virtual void update(double delta_time) { }
+    virtual void update(double delta_time) { ;}
 
     void attach_delegator(Renderable_adder_delegator* delegator);
     void set_graphic(const std::string& s);

@@ -1,7 +1,6 @@
 #ifndef RENDERABLE_LIST_H
 #define RENDERABLE_LIST_H
 
-#include <algorithm>
 #include <memory>
 #include <vector>
 #include "renderable_adder.h"

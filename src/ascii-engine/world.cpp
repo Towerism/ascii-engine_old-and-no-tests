@@ -1,7 +1,4 @@
-#include <memory>
-#include <algorithm>
 #include "world.h"
-#include "entity.h"
 
 namespace ae = ascii_engine;
 

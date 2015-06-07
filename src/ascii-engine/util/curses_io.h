@@ -2,7 +2,6 @@
 #define CURSES_IO_H
 
 #include <curses.h>
-#include <string>
 
 namespace curses {
 

@@ -1,9 +1,6 @@
 #ifndef RENDERER_H
 #define RENDERER_H
 
-#include <vector>
-#include <memory>
-#include "renderable.h"
 #include "renderable_list.h"
 #include "canvas.h"
 

@@ -2,7 +2,6 @@
 #define SCREEN_BUFFER_H
 
 #include <memory>
-#include <boost/numeric/ublas/matrix.hpp>
 #include "screen_output.h"
 
 namespace ascii_engine {

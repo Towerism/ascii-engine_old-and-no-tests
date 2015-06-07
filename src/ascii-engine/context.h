@@ -1,9 +1,7 @@
 #ifndef CONTEXT_H
 #define CONTEXT_H
 
-#include <memory>
 #include <ascii-engine/display/renderer.h>
-#include <ascii-engine/display/renderable_adder.h>
 #include <ascii-engine/display/renderable_adder_delegator.h>
 #include "world.h"
 
