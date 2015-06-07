@@ -1,11 +1,3 @@
-/**********************************
- * author: Martin Fracker, Jr.
- * license: GNU GPL
- * * * * * * * * * * * * * * * * *
- * file: screen_buffer.cpp
- * library: ascii-engine
- **********************************/
-
 #include <algorithm>
 #include "screen_buffer.h"
 #include "curses_screen_output.h"
