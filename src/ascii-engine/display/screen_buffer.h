@@ -26,11 +26,11 @@ namespace ascii_engine {
     std::unique_ptr<Screen_output> screen_output;
     matrix_t char_matrix;
 
-    void fill_buffer_with(char val);
-    void push_filled_row_to_buffer(char val);
+    void fill_matrix_with(char val);
+    void push_filled_row_to_matrix(char val);
     bool is_in_bounds(int x, int y);
-    void write_buffer_to_screen();
-    void empty_buffer();
+    void write_matrix_to_screen();
+    void empty_matrix();
   };
 }
 
