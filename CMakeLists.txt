@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 2.8 FATAL_ERROR)
 
-include_directories(src)
-add_subdirectory(src/ascii-engine)
+include_directories(.)
+add_subdirectory(ascii-engine)
 
 option(ASCII_ENGINE_TESTS "ASCII_ENGINE_TESTS" OFF)
 
