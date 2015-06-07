@@ -3,8 +3,8 @@
 namespace ae = ascii_engine;
 
 ae::Context::Context(int width, int height) : renderer(width, height) {
-  attach(&world);
-  attach(&renderer);
+  attach_delegate(&world);
+  attach_delegate(&renderer);
 }
 
 void ae::Context::update(double delta_time) {
