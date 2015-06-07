@@ -1,7 +1,6 @@
 #include "engine.h"
 
 namespace ae = ascii_engine;
-using namespace std;
 
 void ae::Engine::game_loop() {
   in_loop = true;
@@ -31,5 +30,5 @@ void ae::Engine::terminate_loop() {
 }
 
 void ae::Engine::set_context(Context* context) {
-  this->context = shared_ptr<Context>(context);
+  this->context = std::shared_ptr<Context>(context);
 }

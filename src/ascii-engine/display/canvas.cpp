@@ -3,9 +3,10 @@
 #include "canvas.h"
 
 namespace ae = ascii_engine;
-using namespace std;
 
-void ae::Canvas::draw(int x, int y, const string& s) {
+using std::string;
+
+void ae::Canvas::draw(int x, int y, const std::string& s) {
   prepare_stream(s);
   stream_contents_to_buffer(x, y);
   make_stream_good();

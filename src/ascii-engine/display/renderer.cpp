@@ -4,7 +4,6 @@
 #include "renderable.h"
 
 namespace ae = ascii_engine;
-using namespace std;
 
 void ae::Renderer::render() {
   draw_renderables();

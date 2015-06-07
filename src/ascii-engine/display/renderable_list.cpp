@@ -3,8 +3,9 @@
 #include "renderable.h"
 #include "renderable_list.h"
 
-using namespace std;
 namespace ae = ascii_engine;
+
+using std::shared_ptr;
 
 void ae::Renderable_list::add(Renderable* r) {
   add(shared_ptr<Renderable>(r));

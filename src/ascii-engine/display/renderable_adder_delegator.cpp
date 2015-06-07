@@ -4,7 +4,8 @@
 #include "renderable_list.h"
 
 namespace ae = ascii_engine;
-using namespace std;
+
+using std::shared_ptr;
 
 void ae::Renderable_adder_delegator::attach(Renderable_adder* renderable_adder) {
   adders.push_back(renderable_adder);

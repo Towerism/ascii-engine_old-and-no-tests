@@ -3,7 +3,6 @@
 #include "world.h"
 
 namespace ae = ascii_engine;
-using namespace std;
 
 ae::Context::Context(int width, int height) : renderer(width, height) {
   attach(&world);

@@ -2,7 +2,6 @@
 #include <ascii-engine/util/curses_io.h>
 #include "input_buffer.h"
 
-using namespace std;
 namespace ae = ascii_engine;
 
 void ae::Input_buffer::poll() {
@@ -26,11 +25,11 @@ void ae::Input_buffer::maybe_push_key_back(int key) {
 }
 
 bool ae::Input_buffer::check_key(int key) {
-  const auto it = find(buffer.begin(), buffer.end(), key);
+  const auto it = std::find(buffer.begin(), buffer.end(), key);
   return was_pressed(it);
 }
 
-bool ae::Input_buffer::was_pressed(vector<int>::const_iterator it) {
+bool ae::Input_buffer::was_pressed(std::vector<int>::const_iterator it) {
   bool pressed = it != buffer.end();
   if (pressed)
     buffer.erase(it);

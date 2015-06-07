@@ -4,7 +4,6 @@
 #include "entity.h"
 
 namespace ae = ascii_engine;
-using namespace std;
 
 void ae::World::update(double delta_time) {
   update_renderables(delta_time);
