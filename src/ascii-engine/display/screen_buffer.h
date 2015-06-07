@@ -2,9 +2,7 @@
 #define SCREEN_BUFFER_H
 
 #include <memory>
-#include <vector>
-#include <iostream>
-#include <string>
+#include <boost/numeric/ublas/matrix.hpp>
 #include "screen_output.h"
 
 namespace ascii_engine {
@@ -24,10 +22,9 @@ namespace ascii_engine {
 
     int width, height;
     std::unique_ptr<Screen_output> screen_output;
-    matrix_t char_matrix;
 
-    void fill_matrix_with(char val);
-    void push_filled_row_to_matrix(char val);
+    boost::numeric::ublas::matrix<char> char_matrix;
+
     bool is_in_bounds(int x, int y);
     void write_matrix_to_screen();
     void empty_matrix();
