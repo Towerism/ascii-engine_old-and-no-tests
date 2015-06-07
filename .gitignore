@@ -7,14 +7,6 @@
 # vim swap file
 *.swp
 
-# cmake files
-CMakeFiles
-Makefile
-*.cmake
-
-# binaries
-bin
-
 # Precompiled Headers
 *.gch
 *.pch
@@ -37,3 +29,5 @@ bin
 *.exe
 *.out
 *.app
+
+# Project Specific
