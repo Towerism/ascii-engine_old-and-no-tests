@@ -7,11 +7,9 @@
 
 namespace ascii_engine {
 
-  typedef std::vector<std::vector<char>> matrix_t;
-
   struct Screen_buffer {
 
-    Screen_buffer(int width, int height, char val = ' ');
+    Screen_buffer(int width, int height);
 
     void flush();
 

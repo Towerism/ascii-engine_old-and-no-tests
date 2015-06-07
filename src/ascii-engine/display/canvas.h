@@ -8,8 +8,8 @@ namespace ascii_engine {
 
   struct Canvas {
 
-    Canvas(int width, int height, char val = ' ') :
-      buffer(width, height, val) { }
+    Canvas(int width, int height) :
+      buffer(width, height) { }
 
     void draw(int x, int y, char c) { buffer.put_char(x, y, c); }
     void draw(int x, int y, const std::string& s);

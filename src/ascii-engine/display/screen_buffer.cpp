@@ -12,7 +12,7 @@
 
 namespace ae = ascii_engine;
 
-ae::Screen_buffer::Screen_buffer(int width, int height, char val) :
+ae::Screen_buffer::Screen_buffer(int width, int height) :
   width(width), height(height), screen_output(new Curses_screen_output) {
   empty_matrix();
 }
