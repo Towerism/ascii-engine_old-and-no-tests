@@ -21,11 +21,7 @@ namespace ascii_engine {
     int width, height;
     std::unique_ptr<Screen_output> screen_output;
 
-    boost::numeric::ublas::matrix<char> char_matrix;
-
     bool is_in_bounds(int x, int y);
-    void write_matrix_to_screen();
-    void empty_matrix();
   };
 }
 

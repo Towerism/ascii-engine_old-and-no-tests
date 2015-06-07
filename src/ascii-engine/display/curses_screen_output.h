@@ -10,8 +10,9 @@ namespace ascii_engine {
     Curses_screen_output();
     virtual ~Curses_screen_output() override;
 
-    virtual void refresh() override;
     virtual void print_char_at(int x, int y, char c) override;
+    virtual void refresh() override;
+    virtual void clear() override;
   };
 }
 

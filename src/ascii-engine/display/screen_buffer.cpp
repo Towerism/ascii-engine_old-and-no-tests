@@ -14,23 +14,17 @@ namespace ae = ascii_engine;
 
 ae::Screen_buffer::Screen_buffer(int width, int height) :
   width(width), height(height), screen_output(new Curses_screen_output) {
-  empty_matrix();
-}
-
-void ae::Screen_buffer::empty_matrix() {
-  std::fill(char_matrix.begin1(), char_matrix.end1(), ' ');
 }
 
 void ae::Screen_buffer::put_char(int x, int y, char val) {
   if (!is_in_bounds(x, y))
     return;
-  char_matrix(y, x) = val;
+  screen_output->print_char_at(x, y, val);
 }
 
 bool ae::Screen_buffer::is_in_bounds(int x, int y) {
-  return char_matrix.size1() != 0 && char_matrix.size2() != 0 &&
-    x >= 0 && y >= 0 &&
-    x < width && y < height;
+  return x >= 0 && y >= 0 &&
+         x < width && y < height;
 }
 
 void ae::Screen_buffer::put_line(int x, int y, const std::string& s) {
@@ -39,13 +33,6 @@ void ae::Screen_buffer::put_line(int x, int y, const std::string& s) {
 }
 
 void ae::Screen_buffer::flush() {
-  write_matrix_to_screen();
-  empty_matrix();
   screen_output->refresh();
-}
-
-void ae::Screen_buffer::write_matrix_to_screen() {
-  for (int j = 0; j < height; ++j)
-    for (int i = 0; i < width; ++i)
-      screen_output->print_char_at(j, i, char_matrix(j, i));
+  screen_output->clear();
 }

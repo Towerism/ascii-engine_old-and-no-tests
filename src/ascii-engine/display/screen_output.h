@@ -7,8 +7,9 @@ namespace ascii_engine {
 
     virtual ~Screen_output() { }
 
-    virtual void refresh() = 0;
     virtual void print_char_at(int x, int y, char c) = 0;
+    virtual void refresh() = 0;
+    virtual void clear() = 0;
   };
 }
 

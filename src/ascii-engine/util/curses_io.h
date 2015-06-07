@@ -24,6 +24,10 @@ namespace curses {
     endwin();
   }
 
+  inline void clear_screen() {
+    clear();
+  }
+
   inline void refresh_screen() {
     refresh();
   }
