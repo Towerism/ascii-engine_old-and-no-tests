@@ -23,8 +23,6 @@ namespace ascii_engine {
   private:
 
     std::vector<Renderable_adder*> delegates;
-
-    void add_to_lists(std::shared_ptr<Renderable> r);
   };
 }
 

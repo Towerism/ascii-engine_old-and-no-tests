@@ -18,10 +18,6 @@ void ae::Renderable_adder_delegator::add(Renderable* r) {
 
 void ae::Renderable_adder_delegator::add(shared_ptr<Renderable> r) {
   r->attach_delegator(this);
-  add_to_lists(r);
-}
-
-void ae::Renderable_adder_delegator::add_to_lists(shared_ptr<Renderable> r) {
   for (Renderable_adder* delegate : delegates)
     delegate->add(r);
 }
