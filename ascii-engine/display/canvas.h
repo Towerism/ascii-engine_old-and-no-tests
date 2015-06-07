@@ -22,9 +22,9 @@ namespace ascii_engine {
     std::istringstream stream;
 
     void prepare_stream(const std::string&);
-    void stream_contents_to_buffer(int x, int y);
+    void stream_contents_to_buffer_at_pos(int x, int y);
     bool there_are_more_lines();
-    void add_next_line_to_buffer(int x, int y);
+    void add_next_line_to_buffer_at_pos(int x, int y);
     std::string next_line();
     void make_stream_good();
   };
