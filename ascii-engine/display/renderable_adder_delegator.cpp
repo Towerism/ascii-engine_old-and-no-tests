@@ -8,8 +8,8 @@ namespace ae = ascii_engine;
 
 using std::shared_ptr;
 
-void ae::Renderable_adder_delegator::attach(Renderable_adder* renderable_adder) {
-  adders.push_back(renderable_adder);
+void ae::Renderable_adder_delegator::attach_delegate(Renderable_adder* delegate) {
+  delegates.push_back(delegate);
 }
 
 void ae::Renderable_adder_delegator::add(Renderable* r) {
@@ -22,8 +22,8 @@ void ae::Renderable_adder_delegator::add(shared_ptr<Renderable> r) {
 }
 
 void ae::Renderable_adder_delegator::add_to_lists(shared_ptr<Renderable> r) {
-  for (Renderable_adder* adder : adders)
-    adder->add(r);
+  for (Renderable_adder* delegate : delegates)
+    delegate->add(r);
 }
 
 void ae::Renderable_adder_delegator::remove(shared_ptr<Renderable> r) {
@@ -31,6 +31,6 @@ void ae::Renderable_adder_delegator::remove(shared_ptr<Renderable> r) {
 }
 
 void ae::Renderable_adder_delegator::remove(Renderable* r) {
-  for (Renderable_adder* adder : adders)
-    adder->remove(r);
+  for (Renderable_adder* delegate : delegates)
+    delegate->remove(r);
 }

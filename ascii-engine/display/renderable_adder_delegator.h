@@ -12,7 +12,7 @@ namespace ascii_engine {
 
   struct Renderable_adder_delegator : Renderable_adder {
 
-    void attach(Renderable_adder* renderable_adder);
+    void attach_delegate(Renderable_adder* renderable_adder);
 
     virtual void add(Renderable* r) override;
     virtual void add(std::shared_ptr<Renderable> r) override;
@@ -22,7 +22,7 @@ namespace ascii_engine {
 
   private:
 
-    std::vector<Renderable_adder*> adders;
+    std::vector<Renderable_adder*> delegates;
 
     void add_to_lists(std::shared_ptr<Renderable> r);
   };
