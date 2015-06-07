@@ -1,4 +1,5 @@
 #include <algorithm>
+#include "renderable.h"
 #include "renderable_adder.h"
 #include "renderable_adder_delegator.h"
 #include "renderable_list.h"
@@ -16,7 +17,7 @@ void ae::Renderable_adder_delegator::add(Renderable* r) {
 }
 
 void ae::Renderable_adder_delegator::add(shared_ptr<Renderable> r) {
-  r->attach_adder(this);
+  r->attach_delegator(this);
   add_to_lists(r);
 }
 

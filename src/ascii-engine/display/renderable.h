@@ -5,35 +5,30 @@
 
 namespace ascii_engine {
 
-  struct Renderable_adder;
+  struct Renderable_adder_delegator;
 
   struct Renderable {
 
-    using string = std::string;
+    Renderable(int x, int y);
+    Renderable(int x, int y, std::string s);
 
-    Renderable(int x, int y) : Renderable(x, y, "") { }
-    Renderable(int x, int y, string s) : x(x), y(y), graphic(s) { }
-
-    void translate(int delta_x, int delta_y) { x += delta_x; y += delta_y; }
+    void translate(int delta_x, int delta_y);
 
     virtual void update(double delta_time) { }
 
-    void attach_adder(Renderable_adder* adder) {
-      this->adder = adder;
-    }
+    void attach_delegator(Renderable_adder_delegator* delegator);
+    void set_graphic(const std::string& s);
 
-    void set_graphic(const string& s) { graphic = s; }
-
-    const string& get_graphic() const { return graphic; }
-    int get_x() const { return x; }
-    int get_y() const { return y; }
+    const std::string& get_graphic() const;
+    int get_x() const;
+    int get_y() const;
 
   protected:
 
     int x, y;
-    string graphic;
+    std::string graphic;
 
-    Renderable_adder* adder;
+    Renderable_adder_delegator* delegator;
   };
 }
 

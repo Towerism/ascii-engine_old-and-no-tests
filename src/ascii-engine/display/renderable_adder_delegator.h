@@ -7,7 +7,6 @@
 
 namespace ascii_engine {
 
-  struct Renderable_list;
   struct Renderable;
   typedef std::vector<std::shared_ptr<Renderable>> renderables_t;
 

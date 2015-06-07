@@ -9,7 +9,7 @@ namespace ascii_engine {
 
     Entity() : Entity(0, 0) { }
     Entity(int x, int y) : Entity(x, y, "") { }
-    Entity(int x, int y, const string& s)
+    Entity(int x, int y, const std::string& s)
       : Renderable(x, y, s) { }
   };
 }
