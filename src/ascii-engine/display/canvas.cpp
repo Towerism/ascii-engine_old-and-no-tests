@@ -20,10 +20,6 @@ void ae::Canvas::stream_contents_to_buffer(int x, int y) {
     add_next_line_to_buffer(x, i);
 }
 
-void ae::Canvas::make_stream_good() {
-  stream.clear();
-}
-
 bool ae::Canvas::there_are_more_lines() {
   return stream.good();
 }
@@ -37,4 +33,8 @@ string ae::Canvas::next_line() {
   string line;
   getline(stream, line);
   return line;
+}
+
+void ae::Canvas::make_stream_good() {
+  stream.clear();
 }
