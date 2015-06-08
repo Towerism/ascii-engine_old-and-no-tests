@@ -2,28 +2,26 @@
 #define RENDERABLE_H
 
 #include <string>
+#include <ascii-engine/component/component.h>
 
 namespace ascii_engine {
 
   struct Renderable_adder_delegator;
 
-  struct Renderable {
+  struct Renderable : Component {
 
-    Renderable(int x, int y);
-    Renderable(int x, int y, std::string s);
+    Renderable();
+    Renderable(std::string s);
 
-    virtual void update(double delta_time) { ;}
+    virtual void update() override { }
 
     void attach_delegator(Renderable_adder_delegator* delegator);
     void set_graphic(const std::string& s);
 
     const std::string& get_graphic() const;
-    int get_x() const;
-    int get_y() const;
 
-  protected:
+  private:
 
-    int x, y;
     std::string graphic;
 
     Renderable_adder_delegator* delegator;
